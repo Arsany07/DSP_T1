@@ -70,6 +70,9 @@ class SignalView(QWidget):
         self.plot_widget = pg.PlotWidget()
         self.plot_widget.setLabel('bottom', 'Time')
         self.plot_widget.setLabel('left', 'Amplitude')
+        self.plot_widget.setMouseEnabled(x=False, y=False) 
+        # self.zoom_in_button.setEnabled(False)
+        # self.zoom_out_button.setEnabled(False)
         
         #Container that holds the buttons so it can be hid or shown
         self.button_container = QWidget()
@@ -108,6 +111,9 @@ class SignalView(QWidget):
         self.zoom_out_button = QPushButton('Zoom Out')
         self.zoom_out_button.clicked.connect(self.zoom_out)
         button_layout.addWidget(self.zoom_out_button)
+        
+
+       
         
         # Add a speed control slider
         self.speed_slider = QSlider(Qt.Horizontal)
@@ -311,7 +317,11 @@ class SignalView(QWidget):
         plot_item.plot(pen='g') 
         
         self.start_animation()
-        
+        self.plot_widget.setMouseEnabled(x=True, y=True) 
+        # self.zoom_in_button.setEnabled(True)
+        # self.zoom_out_button.setEnabled(True)
+
+ 
         ### This Section was from adding the signal as a PlotCurveItem
         # # Assign a random color from colors list
         # curve_color = random.choice(self.colors_list)
