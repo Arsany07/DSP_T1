@@ -71,8 +71,7 @@ class SignalView(QWidget):
         self.plot_widget.setLabel('bottom', 'Time')
         self.plot_widget.setLabel('left', 'Amplitude')
         self.plot_widget.setMouseEnabled(x=False, y=False) 
-        # self.zoom_in_button.setEnabled(False)
-        # self.zoom_out_button.setEnabled(False)
+
         
         #Container that holds the buttons so it can be hid or shown
         self.button_container = QWidget()
@@ -318,8 +317,6 @@ class SignalView(QWidget):
         
         self.start_animation()
         self.plot_widget.setMouseEnabled(x=True, y=True) 
-        # self.zoom_in_button.setEnabled(True)
-        # self.zoom_out_button.setEnabled(True)
 
  
         ### This Section was from adding the signal as a PlotCurveItem
